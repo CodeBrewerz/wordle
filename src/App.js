@@ -46,3 +46,24 @@
     message: 'Not Enough Letters',
     isOpen: true,
   })
+
+  const alertMapping = [
+    [event === 'WordNotFoundAlert', WordNotFoundAlert_],
+    [event === 'GameLostAlert', GameLostAlert_],
+    [event === 'ShareCompleteAlert', ShareCompleteAlert_],
+    [event === 'NotEnoughLettersAlert', NotEnoughLettersAlert_],
+  ]
+
+  const alertCataMorphism = (alert) =>
+    alert.cata({
+      WordNotFoundAlert: (_) => toModalView(alert.comp, alert.props),
+      GameLostAlert: (_) => toModalView(alert.comp, alert.props),
+      ShareCompleteAlert: (_) => toModalView(alert.comp, alert.props),
+      NotEnoughLettersAlert: (_) => toModalView(alert.comp, alert.props),
+    })
+
+  const handleAlert = (a) =>
+    maybe(View(() => <div>Nothing Alert!!</div>))(
+      compose(alertCataMorphism, last)
+    )(a)
+
