@@ -23,3 +23,26 @@
     }
   )
 
+  const AlertV = daggy.taggedSum('Alert', {
+    WordNotFoundAlert: ['comp', 'props'],
+    GameLostAlert: ['comp', 'props'],
+    ShareCompleteAlert: ['comp', 'props'],
+    NotEnoughLettersAlert: ['comp', 'props'],
+  })
+  const WordNotFoundAlert_ = AlertV.WordNotFoundAlert(Alert, {
+    message: 'Word Not Found',
+    isOpen: true,
+  })
+  const GameLostAlert_ = AlertV.GameLostAlert(Alert, {
+    message: `You Lost, The Word Was ${solution}`,
+    isOpen: true,
+  })
+  const ShareCompleteAlert_ = AlertV.ShareCompleteAlert(Alert, {
+    message: 'Share Complete',
+    variant: 'success',
+    isOpen: true,
+  })
+  const NotEnoughLettersAlert_ = AlertV.NotEnoughLettersAlert(Alert, {
+    message: 'Not Enough Letters',
+    isOpen: true,
+  })
