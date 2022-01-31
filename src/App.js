@@ -23,6 +23,23 @@
     }
   )
 
+  const modalMapping = [
+    [event === 'InfoModal', InfoModal_],
+    [event === 'WinModal', WinModal_],
+  ]
+
+  const modalCataMorphism = (modal) =>
+    modal.cata({
+      InfoModal: (_) => toModalView(modal.comp, modal.props),
+      WinModal: (_) => toModalView(modal.comp, modal.props),
+      NoModal: () => null,
+    })
+
+  const handleModal = (a) =>
+    maybe(View(() => <div>Nothing Modal!!</div>))(
+      compose(modalCataMorphism, last)
+    )(a)
+
   const AlertV = daggy.taggedSum('Alert', {
     WordNotFoundAlert: ['comp', 'props'],
     GameLostAlert: ['comp', 'props'],
