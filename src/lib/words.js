@@ -21,7 +21,6 @@ export const getWordOfDay = () => {
     solution: WORDS[index].toUpperCase(),
     solutionIndex: index,
   };
-  console.log(result);
   return result;
 }
 

@@ -97,8 +97,6 @@ export const gameReducer = (state, action) => {
             case 'DELETE':
                 if (state.currentlyPlayingCell >= 0) {
                     const res = { ...state };
-                    console.log(state.cellCharacterMap.get(state.currentlyPlayingRow.toString()
-                    ).get(state.currentlyPlayingCell).state, 'SSS')
                     if (state.currentlyPlayingCell == LAST_PLAYING_CELL &&
                         state.cellCharacterMap.get(state.currentlyPlayingRow.toString()
                         ).get(state.currentlyPlayingCell).state == 'TBD') {
