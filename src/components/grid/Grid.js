@@ -47,7 +47,7 @@ const Cell = memo(({ rowIndex, columnIndex, state_ }) => {
     )
 })
 
-const MyRowView = ({ rowIndex, state }) =>
+const RowView = ({ rowIndex, state }) =>
     View.of(
         concatComps(
             [0, 1, 2, 3, 4].map(
@@ -80,7 +80,7 @@ export const Grid = ({ state }) => {
     }, []);
     return (
         <div ref={containerRef}>{concatComps(
-            ['1', '2', '3', '4', '5', '6'].map(rowIndex => MyRowView({ rowIndex, state })))
+            ['1', '2', '3', '4', '5', '6'].map(rowIndex => RowView({ rowIndex, state })))
             .map(cs => <div key={Math.random()} className="pb-6">{cs}</div>).fold()}
         </div>)
 }
