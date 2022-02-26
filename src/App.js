@@ -130,7 +130,7 @@ function App() {
 
   return (
     <>
-      <div className="dark:bg-black h-screen py-24 mx-auto sm:px-6 lg:px-8">
+      <div className="dark:bg-black h-screen py-18 mx-auto sm:px-6 lg:px-8">
         <div>
           <ToastContainer
             position="top-center"

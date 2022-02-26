@@ -72,7 +72,7 @@ export const Keyboard = ({ dispatch, state }) => {
   }, [])
 
   return (
-    <div id="keyboard">
+    <div className="p-3" id="keyboard">
       {(
         KeyViews(keyMapSelector, (value) => keyboardReducer(value))(keys)
       )
